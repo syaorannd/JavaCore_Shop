@@ -1,4 +1,6 @@
 package shop.controller;
+import java.sql.SQLException;
+
 import shop.dao.*;
 public class LoginAdminController {
 	private boolean loginAlready;
@@ -9,7 +11,7 @@ public class LoginAdminController {
 		dbAccess = new DatabaseAccess();
 	}
 	// Login
-	public boolean LoginAdmin(String name, String pass) {
+	public boolean LoginAdmin(String name, String pass) throws SQLException {
 		boolean ret = false;
 		if(dbAccess.DataLoginRW(true, name, pass)) {
 			this.loginAlready = true;	
