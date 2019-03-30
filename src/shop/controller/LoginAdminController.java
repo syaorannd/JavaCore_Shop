@@ -11,11 +11,15 @@ public class LoginAdminController {
 		dbAccess = new DatabaseAccess();
 	}
 	// Login
-	public boolean LoginAdmin(String name, String pass) throws SQLException {
+	public boolean LoginAdmin(String name, String pass){
 		boolean ret = false;
-		if(dbAccess.DataLoginRW(true, name, pass)) {
-			this.loginAlready = true;	
-			ret = true;
+		try {
+			if(dbAccess.DataLoginRW(true, name, pass)) {
+				this.loginAlready = true;	
+				ret = true;
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 		return ret;
 	}

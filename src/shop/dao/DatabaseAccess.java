@@ -27,7 +27,7 @@ public class DatabaseAccess{
 		conn = null;
 		user = new UserLogin();
 	}
-	
+	// Connect to database
 	public void connect() throws SQLException {
 		try {
 			fileName = "jdbc:sqlite:/home/thinhnn/Documents/JavaProject/JavaCore_Shop/shop.db";
@@ -39,6 +39,7 @@ public class DatabaseAccess{
 		}
 	}
 	
+	// Disconnect to database
 	public void disconnect() {
 		try {
 			if(conn != null) {
@@ -58,6 +59,7 @@ public class DatabaseAccess{
 		String sql = "SELECT name, pass FROM shop";
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery(sql);
+		// TNN-TODO : Need to change rs.next function
 		while (rs.next()) {
 			user.name = rs.getString("name");
 			user.pass = rs.getString("pass");

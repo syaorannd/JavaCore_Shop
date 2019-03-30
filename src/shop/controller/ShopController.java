@@ -62,12 +62,11 @@ class ShopController {
 		try {
 			dbAccess.DataLoginRW(true, userName, password);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e.getMessage());
 		}
 	}
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 		ShopController shopController = new ShopController();
 		shopController.loginAccess("thinhnn", "Toshiba123@");
 	}
