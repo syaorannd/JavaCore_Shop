@@ -6,14 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-class UserLogin{
-	String name;
-	String pass;
-	UserLogin() {
-		name = "";
-		pass = "";	
-	}
-}
+import shop.ulti.UserLogin;
+
 
 public class DatabaseAccess{
 	String fileName;
