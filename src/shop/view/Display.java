@@ -1,19 +1,33 @@
 // TNN-TODO : Need to study later :v
 package shop.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import shop.model.Product;
 import shop.ulti.*;
 public class Display {
+	ArrayList<Product> listProduct;
 	public Display() {
-//		System.out.println("===========================================================");
-//		System.out.println("========================Shop Thinh NN======================");
-//		System.out.println("1. View Products");
-//		System.out.println("2. Information");
-//		System.out.println("3. Login");
-//		System.out.println("===========================================================");
+		
 	}
-	public int displayProductNormal() {
+	public Display(ArrayList<Product> listProduct) {
+		this.listProduct = listProduct;
+	}
+	public void setListProduct(ArrayList<Product> listProduct) {
+		this.listProduct = listProduct;
+	}
+	
+	public void displayProductNormal(Product product) {
 		System.out.println("===========================================================");
+		int index = 0;
+		System.out.println("**************");
+		System.out.println("Name: " + product.getName());
+		System.out.println("Cost: " + product.getCost());
+		System.out.println("Number of product: " + product.getNumPro());
+		System.out.println("**************");
+	}
+	public int retNum() {
 		System.out.println("1. Back");
 	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
@@ -21,7 +35,6 @@ public class Display {
 	    String num = myObj.nextLine();  // Read user input
 		
 		return (Integer.parseInt(num));
-		
 	}
 	// When login , can display Add, Edit, Delete Item
 	public int displayProductLogin() {

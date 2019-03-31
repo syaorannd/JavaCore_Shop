@@ -14,12 +14,25 @@ public class Product {
 		this.imgSrc = imgSrc;
 		this.numOfProduct = num;
 	}
+	public Product() {
+		this.name = "";
+		this.cost = 0;
+		this.numOfProduct = 0;
+		this.imgSrc = "";
+	}
 	// Setter for just variables can change (cost & number of product).
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
 	public void setNumOfProduct(int num) {
 		this.numOfProduct = num;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setImgSrc(String img) {
+		this.imgSrc = img;
 	}
 	
 	// Getter for each property

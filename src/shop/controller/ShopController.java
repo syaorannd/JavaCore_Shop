@@ -19,7 +19,6 @@ class ShopController {
 	// property
 	private ArrayList<Product> listProduct;
 	private Display diplay;
-	private LoginAdminController loginAdmin;
 	private DatabaseAccess dbAccess;
 	private boolean isLogin;
 	
@@ -27,16 +26,21 @@ class ShopController {
 	ShopController() {
 		listProduct = new ArrayList<Product>();
 		diplay = new Display();
-		loginAdmin = new LoginAdminController();
 		dbAccess = new DatabaseAccess();
 		isLogin = false;
 	}
 	
 	// Method
 	void Initialize() {
-		// Read list product from data
+		// Read list product from data\
+		try {
+			dbAccess.DataRW(true, listProduct);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	void displayStatus(StatusDisplay homenormal) {
+		diplay.setListProduct(listProduct);
 		switch(homenormal) {
 		case HOMENORMAL : {
 			int ret = diplay.displayHome();
@@ -65,6 +69,13 @@ class ShopController {
 			break;
 		}
 		case VIEWPRODUCTNORMAL : {
+			int nSize = listProduct.size();
+			for(int i = 0; i < nSize; i++) {
+				diplay.displayProductNormal(listProduct.get(i));
+			}
+			int ret = diplay.retNum();
+			if(ret == 1)
+				displayStatus(StatusDisplay.HOMENORMAL);
 			break;
 		}
 		case VIEWPRODUCTLOGIN : {
@@ -93,6 +104,7 @@ class ShopController {
 		}
 		
 	}
+	
 	void addProduct(Product newPro) {
 		
 	}
@@ -130,6 +142,7 @@ class ShopController {
 	
 	public static void main(String[] args) {
 		ShopController shopController = new ShopController();
+		shopController.Initialize();
 		shopController.displayStatus(StatusDisplay.HOMENORMAL);
 	}
 }

@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
+import shop.model.Product;
 import shop.ulti.UserLogin;
 
 
@@ -69,9 +71,21 @@ public class DatabaseAccess{
 		return ret;
 	}
 	
-	public boolean DataRW(boolean read, String session, String Key, String values) {
-		// TNN-TODO : Need to read write
+	public boolean DataRW(boolean read, ArrayList<Product> listProduct) throws SQLException {
 		boolean ret = false;
+		this.connect();
+		// Select name and pass from shop on Sqlite3
+		String sql = "SELECT name, cost, numOfProduct FROM products";
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next()) {
+			Product temp = new Product();
+			temp.setName(rs.getString("name"));
+			temp.setCost(Integer.parseInt(rs.getString("cost")));
+			temp.setNumOfProduct(Integer.parseInt(rs.getString("numOfProduct")));
+			listProduct.add(temp);
+		}
+		this.disconnect();
 		return ret;
 	}
 	
