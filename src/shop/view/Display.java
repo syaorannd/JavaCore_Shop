@@ -20,7 +20,6 @@ public class Display {
 	
 	public void displayProductNormal(Product product) {
 		System.out.println("===========================================================");
-		int index = 0;
 		System.out.println("**************");
 		System.out.println("Name: " + product.getName());
 		System.out.println("Cost: " + product.getCost());
@@ -29,7 +28,8 @@ public class Display {
 	}
 	public int retNum() {
 		System.out.println("1. Back");
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
 
 	    String num = myObj.nextLine();  // Read user input
@@ -43,7 +43,8 @@ public class Display {
 		System.out.println("2. Choose your product");
 		System.out.println("3. Edit product number ");
 		System.out.println("\r\n");
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
 
 	    String num = myObj.nextLine();  // Read user input
@@ -55,7 +56,8 @@ public class Display {
 		System.out.println("* This project is created by ThinhNN, for test Java core **");
 		System.out.println("1. Back");
 		System.out.println("\r\n");
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
 
 	    String num = myObj.nextLine();  // Read user input
@@ -70,7 +72,8 @@ public class Display {
 		System.out.println("2. Information");
 		System.out.println("3. Logout");
 		System.out.println("\r\n");
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
 
 	    String num = myObj.nextLine();  // Read user input
@@ -85,7 +88,8 @@ public class Display {
 		System.out.println("2. Information");
 		System.out.println("3. Login");
 		System.out.println("\r\n");
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	    System.out.print("Enter your choise: ");
 
 	    String num = myObj.nextLine();  // Read user input
@@ -95,7 +99,8 @@ public class Display {
 	public UserLogin displayLoginUser() {
 		System.out.println("===========================================================");
 		UserLogin user = new UserLogin();
-	    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	    @SuppressWarnings("resource")
+		Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 		System.out.print("User: ");
 		user.name = myObj.nextLine();  // Read user input
 		System.out.print("Password: ");
